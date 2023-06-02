@@ -1,0 +1,12 @@
+<svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <linearGradient id="half">
+        <stop offset="0%" stop-color="#7DC84B" />
+        <stop offset="50%" stop-color="#7DC84B" />
+        <stop offset="50%" stop-color="#fff" />
+        <stop offset="100%" stop-color="#fff" />
+    </linearGradient>
+    <g fill="url(#half)">
+        <path  d="M11 10.5L2 13L8 20L7 29L16.5 25.5L25 29V20L30.5 13L20.5 10.5L16.5 2L11 10.5Z" fill="transparent"/>
+        <path d="M33 12.2046L22.0709 9.898L16.5 0.216797L10.9291 9.898L0 12.2046L7.48601 20.4945L6.30248 31.6013L16.5 27.0435L26.6976 31.6013L25.5141 20.4945L33 12.2046ZM16.5 24.7947L8.72208 28.271L9.62481 19.7996L3.91505 13.4766L12.251 11.7174L16.5001 4.33318L20.7493 11.7174L29.085 13.4767L23.3753 19.7996L24.278 28.2711L16.5 24.7947Z" fill="#7DC84B" />
+    </g>
+</svg>
