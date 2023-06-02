@@ -67,6 +67,7 @@ body {
 
 // large border radius
 .card,
+.chart-block .card,
 .news .card a img,
 .offers-block__overlay,
 .social-block,
@@ -93,6 +94,7 @@ body {
 }
 
 //box-shadow
+.chart-block .card,
 .pagination > li > a, .pagination > li > span,
 .card.page-title,
 .card,
