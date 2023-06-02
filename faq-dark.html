@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="PLNcwkkj3s5Aur7hgThDXl3a3XNN1uLklmc0vq0l">
+    <meta name="csrf-token" content="5UDURmHSacA6WyeKuHsMeX4oMGXPV2s1BwmhU8JA">
 
-    <title>Новости
-        | Saleads.pro</title>
+    <title>FAQ | Saleads.pro</title>
     <!-- Favicons -->
     <link rel="icon" href="https://saleads.pro/favicon.ico" />
     <!-- Styles -->
@@ -28,7 +27,7 @@
 
     <!-- Scripts -->
     <script>
-        window.Laravel = {"csrfToken":"PLNcwkkj3s5Aur7hgThDXl3a3XNN1uLklmc0vq0l"};
+        window.Laravel = {"csrfToken":"5UDURmHSacA6WyeKuHsMeX4oMGXPV2s1BwmhU8JA"};
     </script>
     <script src="https://saleads.pro/js/core/jquery.min.js"></script>
     <script src="https://saleads.pro/js/plugins/masonry.pkgd.min.js"></script>
@@ -419,10 +418,297 @@
 
 
 
+    <link rel="stylesheet" href="/js/plugins/slick/slick.min.css" />
+    <link rel="stylesheet" href="/js/plugins/slick/slick-theme.min.css" />
     <style>
-        .news a img {
+        .instructions {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; }
+        .instructions__aside {
+            width: 240px;
+            height: -webkit-fit-content;
+            height: -moz-fit-content;
+            height: fit-content; }
+        .instructions__aside-wrap {
+            background: linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 92.19%, #FCFCFC 100%);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            border-radius: 7px 0 0 7px; }
+        .instructions__aside-wrap ul {
+            list-style: none;
+            margin: 0;
+            padding: 0; }
+        .instructions__aside-wrap ul > * + * {
+            border-top: 1px solid #F3F3F3; }
+        .instructions__aside-wrap ul a {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 40px;
+            color: #626262;
+            padding: 0 20px;
+            width: 100%;
+            display: block; }
+        .instructions__aside-wrap ul a:hover {
+            background: #74C85D;
+            color: #fff; }
+        .instructions__aside-wrap ul a.active {
+            border-right: 3px solid #74C85D;}
+        .instructions__aside-title {
+            display: none;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 15px;
+            color: #000000;
+            background: #FFFFFF;
+            border-radius: 4px 10px 0 0;
+            padding: 10px 50px 10px 14px;
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
+            position: relative; }
+        .instructions__aside-title:before {
+            content: '';
+            position: absolute;
+            background: url("/img/icons/aside__arrow.svg") center no-repeat;
+            background-size: cover;
+            width: 8px;
+            height: 4px;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: .3s ease-out; }
+        .instructions__aside-title:after {
+            content: attr(data-label);
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 15px;
+            color: #000000;
+            display: none; }
+        .instructions__aside.active .instructions__aside-title {
+            font-size: 0;
+            line-height: 0;
+            border-radius: 7px; }
+        .instructions__aside.active .instructions__aside-title:after {
+            display: block; }
+        .instructions__aside.active .instructions__aside-title:before {
+            transform: translateY(-50%) scaleY(-1); }
+        .instructions__content {
+            width: calc(100% - 240px);
+            background: #FFFFFF;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            border-radius: 0 7px 7px 0;
+            padding: 25px 35px; }
+        .instructions__content > * + * {
+            margin-top: 18px; }
+        .instructions__item.active .instructions__item-question {
+            color: #74C85D; }
+        .instructions__item.active .instructions__item-question:before {
+            background: url("/img/icons/minus.svg") center no-repeat;
+            background-size: contain; }
+        .instructions__item-question {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 19px;
+            color: #626262;
+            cursor: pointer;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid #EFEFEF;
+            position: relative;
+            transition: .3s ease-out; }
+        .instructions__item-question:before {
+            content: '';
+            position: absolute;
+            background: url("/img/icons/plus.svg") center no-repeat;
+            background-size: contain;
+            left: 8px;
+            top: 3px;
+            width: 13px;
+            height: 13px;
+            transition: .3s ease-out; }
+        .instructions__item-answer {
+            margin: 30px 0;
+            width: 100%; }
+        .instructions__item-answer > * + * {
+            margin-top: 30px !important; }
+        .instructions__item-answer-img {
+            text-align: center; }
+        .instructions__item-answer-img img {
+            max-width: 100%; }
+        .instructions__item-answer p {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 160%;
+            color: #000000;
+            margin: 0 0 15px 0; }
+        .instructions__item-answer h3 {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .instructions__item-answer-content > ul {
+            list-style: none;
+            margin: 15px 0;
+            padding: 0;
+        }
+        .instructions__item-answer-content > ul li {
+            padding-left: 20px;
+            position: relative;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 190%;
+            color: #444C59;
+        }
+        .instructions__item-answer-content > ul li:before {
+            content: '';
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            border: 2px solid #79bc41;
+            left: 0;
+            top: 8px;
+        }
+
+        .instructions__item-answer ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            counter-reset: faqCounter;
+        }
+        .instructions__item-answer ol li {
+            list-style: none;
+            margin-bottom: 18px;
+            font-size: 14px;
+            display: flex;
+        }
+        .instructions__item-answer ol li:before {
+            counter-increment: faqCounter;
+            content: counter(faqCounter);
+            background: #EDF0F5;
+            color: #8A96AA;
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            width: 45px;
+            min-width: 45px;
+            height: 35px;
+            line-height: 35px;
+            margin-right: 25px;
+            border-radius: 5px;
+        }
+        .instructions__item-answer a:not(.btn) {
+            color: #2E82D0;
+            text-decoration: underline;
+        }
+        .instructions__content .page-inner {
+            margin: -10px -10px 35px -10px;
+        }
+        .instructions__content .page-inner .card.page-title{
             border-radius: 10px;
         }
+        .sm-p-r-md {
+            padding-right: 24px !important;
+        }
+        .instructions__item-answer-content > *:first-child{
+            margin-top: 0!important;
+        }
+
+        .instructions__item-answer-content .type-alert {
+            background: #F1F1F1;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .instructions__item-answer-content .type-alert > *:first-child {
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .instructions__aside {
+                width: 100%; }
+            .instructions__aside-wrap {
+                border-radius: 0;
+                padding: 20px 35px; }
+            .instructions__aside-wrap ul {
+                -moz-column-count: 2;
+                column-count: 2; }
+            .instructions__aside-wrap ul > * + * {
+                border: none; }
+            .instructions__aside-wrap ul a {
+                padding: 0; }
+            .instructions__aside-wrap ul a:hover {
+                background: #fff;
+                color: #74C85D; }
+            .instructions__aside-title {
+                display: block; }
+            .instructions__content {
+                width: 100%;
+                margin-top: 10px;
+                border-radius: 7px;
+                padding: 5px 20px 30px;
+            }
+            .instructions__content .page-inner {
+                margin: 0 0 35px 0;
+            }
+            .instructions__content .page-inner .card.page-title{
+                border-radius: 10px 10px 0 0;
+            }
+            .instructions__content .page-inner .card.page-title .card-title{
+                font-size: 20px;
+            }
+            .sm-p-r-md {
+                padding-right: 0px !important;
+            }
+
+        }
+
+        @media (max-width: 639px) {
+            .instructions__aside-wrap {
+                border-radius: 0 0 7px 7px;
+                padding: 0; }
+            .instructions__aside-wrap ul {
+                -moz-column-count: 1;
+                column-count: 1; }
+            .instructions__aside-wrap ul li {
+                border-top: 1px solid #F3F3F3; }
+            .instructions__aside-wrap ul a {
+                padding: 0 20px; }
+            .instructions__aside-wrap ul a:hover {
+                background: #74C85D;
+                color: #fff; }
+            .instructions__aside-title {
+                border-radius: 7px 7px 0 0;
+                width: 100%;
+                padding: 15px 20px;
+                font-size: 13px;
+                line-height: 17px; }
+            .instructions__aside-title:after {
+                font-size: 13px;
+                line-height: 17px; }
+            .instructions__aside-title:before {
+                right: 25px; }
+            .instructions__item-question {
+                padding: 0 20px 20px 0;
+                font-size: 14px;
+                line-height: 16px; }
+            .instructions__item-question:before {
+                width: 11px;
+                height: 11px; }
+            .instructions__item-answer > * + * {
+                margin-top: 20px !important; }
+            .instructions__item-answer-img img {
+                width: 100%; }
+            .instructions__item-answer p {
+                font-size: 13px;
+                line-height: 154%; } }
+
     </style>
     <link rel="stylesheet" href="css/ionicons.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
@@ -484,7 +770,7 @@
                                             </span>
                                     </a>
                                 </li>
-                                <li class="active current">
+                                <li class="">
                                     <a href="https://saleads.pro/lk/webmaster/news" class="site-nav--link">
 
                     <span class="site-nav--link__icon">
@@ -496,7 +782,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <div class="menu-item ">
+                                    <div class="menu-item active current">
                                         <div class="menu-item--title site-nav--link">
                                                 <span class="site-nav--link__icon">
                             <span class="svg-mask-icon" style="width: 15px; mask: url(/img/menu/tickets.svg) no-repeat center/contain; -webkit-mask: url(/img/menu/tickets.svg) no-repeat center/contain;height: 15px; display: inline-block;"></span>
@@ -505,11 +791,11 @@
                                             <span class="site-nav--link__text">
                             Служба поддержки
                                                     </span>
-                                            <span class="site-nav--link__number bg-red">13</span>
+                                            <span class="site-nav--link__number bg-red">14</span>
                                         </div>
-                                        <div class="menu-item--list" style="transition: none 0s ease 0s; display: none;">
+                                        <div class="menu-item--list" style="transition: none 0s ease 0s; display: block;">
                                             <ul>
-                                                <li class="">
+                                                <li class="active">
                                                     <a href="https://saleads.pro/lk/webmaster/faq">
                                                         <span class="link__text">FAQ</span>
                                                     </a>
@@ -522,7 +808,7 @@
                                                 <li class="">
                                                     <a href="https://saleads.pro/lk/webmaster/feature-requests">
                                                         <span class="link__text">Голосование</span>
-                                                        <span class="site-nav--link__number ">13</span>
+                                                        <span class="site-nav--link__number ">14</span>
                                                     </a>
                                                 </li>
                                                 <li class="">
@@ -762,7 +1048,7 @@
                                 </span>
                                         <span class="site-nav--link__text">Выйти</span>
                                         <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                                            <input type="hidden" name="_token" value="PLNcwkkj3s5Aur7hgThDXl3a3XNN1uLklmc0vq0l">
+                                            <input type="hidden" name="_token" value="5UDURmHSacA6WyeKuHsMeX4oMGXPV2s1BwmhU8JA">
                                         </form>
                                     </a>
                                 </li>
@@ -934,511 +1220,530 @@
         <main class="app-layout-content">
 
             <!-- Page Content -->
-            <section>
-                <div class="container-fluid">
-                    <div class="page-inner m-t-md">
-                        <div class="card page-title page-title--articles">
-                            <div class="page-title__wrap">
-                                <div class="card-header">
-                                    <h2 class="card-title">Новости</h2>
-                                </div>
-                                <div class="page-title__info">
-                                    <p>Все новости в нашем телеграм-боте:</p>
-                                    <div class="telegram-link">
-                                        <div class="telegram-link__text"><span></span>
-                                            @saleads_lk_bot
-                                        </div>
+            <section id="faq-page">
+                <div class="container-fluid" style="max-width: 1146px;">
+                    <section class="instructions__block m-t-md">
+                        <div class="">
+                            <div class="instructions">
+                                <div class="instructions__aside hidden-sm hidden-md hidden-lg">
+                                    <div class="instructions__aside-title clickable" data-label="Показать категории">Скрыть категории</div>
+                                    <div class="instructions__aside-wrap">
+                                        <ul style="display: block">
+                                            <li class="active">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/1"
+                                                        class="active"
+                                                >Начало работы</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/17"
+                                                        class=""
+                                                >Видео инструкции</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/5"
+                                                        class=""
+                                                >Офферы и реклама</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/2"
+                                                        class=""
+                                                >SmartLand / BotLand</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/3"
+                                                        class=""
+                                                >Виджеты/Свой сайт</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/15"
+                                                        class=""
+                                                >BotTelegram</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/18"
+                                                        class=""
+                                                >BotVK</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/12"
+                                                        class=""
+                                                >Передача заявок по API</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/10"
+                                                        class=""
+                                                >Инструменты</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/6"
+                                                        class=""
+                                                >Статистика</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/8"
+                                                        class=""
+                                                >Обратная связь</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/9"
+                                                        class=""
+                                                >Рефералы</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/7"
+                                                        class=""
+                                                >Вывод средств</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/11"
+                                                        class=""
+                                                >Подключение трекеров</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/4"
+                                                        class=""
+                                                >Общие вопросы</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/14"
+                                                        class=""
+                                                >Типы трафика</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/16"
+                                                        class=""
+                                                >Рейтинг</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tabs-container">
-                        <ul class="nav nav-tabs">
-                            <li
-                                    class="active"
-                            >
-                                <a href="https://saleads.pro/lk/webmaster/news">Новости Saleads</a>
-                            </li>
-                            <li
-                            >
-                                <a href="https://saleads.pro/lk/webmaster/news-offers">Новости офферов</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="row news">
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">16.05</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2982"><img class="img-responsive" src="https://saleads.pro/storage/articles/xZqnSscy8bp0Wrfe.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2982">Оставь отзыв о нас - получи бонус на баланс!</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            Мы приглашаем тебя принять участие в нашей бонусной программе - для этого всего лишь нужно поделиться своим мнением о Saleads.pro. Условия и подробности акции читайте в нашей статье.
-                                        </div>
+                                <div class="instructions__aside hidden-xs">
+                                    <div class="instructions__aside-wrap">
+                                        <ul style="display: block">
+                                            <li class="active">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/1"
+                                                        class="active"
+                                                >Начало работы</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/17"
+                                                        class=""
+                                                >Видео инструкции</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/5"
+                                                        class=""
+                                                >Офферы и реклама</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/2"
+                                                        class=""
+                                                >SmartLand / BotLand</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/3"
+                                                        class=""
+                                                >Виджеты/Свой сайт</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/15"
+                                                        class=""
+                                                >BotTelegram</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/18"
+                                                        class=""
+                                                >BotVK</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/12"
+                                                        class=""
+                                                >Передача заявок по API</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/10"
+                                                        class=""
+                                                >Инструменты</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/6"
+                                                        class=""
+                                                >Статистика</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/8"
+                                                        class=""
+                                                >Обратная связь</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/9"
+                                                        class=""
+                                                >Рефералы</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/7"
+                                                        class=""
+                                                >Вывод средств</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/11"
+                                                        class=""
+                                                >Подключение трекеров</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/4"
+                                                        class=""
+                                                >Общие вопросы</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/14"
+                                                        class=""
+                                                >Типы трафика</a>
+                                            </li>
+                                            <li class="">
+                                                <a
+                                                        href="https://saleads.pro/lk/webmaster/faq/16"
+                                                        class=""
+                                                >Рейтинг</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">25.04</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2940"><img class="img-responsive" src="https://saleads.pro/storage/articles/mfq3wq48g5g5JWlf.png" /></a>
+                                <div class="instructions__content" id="faq-content">
+                                    <section class="page-inner">
+                                        <div class="card page-title" style="background: linear-gradient(98.59deg, rgba(202, 204, 220, 1) 3.9%, rgba(180, 193, 220, 1) 97.43%); position: relative; overflow: hidden;">
+                                            <div class="page-title__wrap">
+                                                <div class="card-header">
+                                                    <h2 class="card-title">Начало работы</h2>
+                                                    <img class="hidden-xs" src="https://saleads.pro/storage/faq-articles/vPoAdFqjGxiZrYgI.png" style="position: absolute; right: 0; bottom: 0;">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2940">Тёмная тема Saleads.pro</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            По многочисленным просьбам вебмастеров в разделе «Голосование» мы создали дизайн личного кабинета темным. О том, как переключиться на темный режим,  рассказываем в нашей статье.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">04.04</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2884"><img class="img-responsive" src="https://saleads.pro/storage/articles/hVlsSNPUlbByIL8E.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2884">Saleads.pro поздравляет вас с днем вебмастера!</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            4 апреля – день вебмастера. Дата неофициального праздника выбрана не спроста: сочетание 4.04 – это отсылка к браузерной ошибке 404 (страница не найдена). Мы подготовили небольшое поздравление и искренние пожелания в ваш профессиональный день!
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">31.03</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2871"><img class="img-responsive" src="https://saleads.pro/storage/articles/fXZykEA5hEmw2FnN.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2871">Проголосуйте за нас на PARTNERKIN AWARDS</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            Мы стараемся сделать наш Saleads.pro лучше, а наших вебмастеров – богаче. Поэтому всячески повышаем не только качество сервиса и функционал, но и узнаваемость партнерки. В этом поможет Partnerkin Awards – премия, определяющая фаворитов каждой вертикали CPA-маркетинга. Проголосовать могут зарегистрированные на partnerkin.com пользователи. Мы будем очень признательны вашему голосу за нас – в статье расскажем, как это сделать!
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">24.03</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2854"><img class="img-responsive" src="https://saleads.pro/storage/articles/84asIIpP7jLqh9WA.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2854">Новые вертикали, дизайн и описание в ботах для VK и Telegram</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            Новые вертикали, дизайн и описание в ботах для VK и Telegram
+                                    </section>
+                                    <div class="instructions__item ">
+                                        <div
+                                                class="instructions__item-question"
+                                        ><span class="number-label-wrapper"><span class="number-label">1</span></span> Я новичок и не понимаю, как тут всё работает. С чего мне начать?</div>
+                                        <div class="instructions__item-answer" style="display: none;" id="article-1">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-4 col-sm-push-8">
+                                                    <div class="faq-images hidden-xs">
+                                                        <div class="m-b-md">
+                                                            <img src="https://saleads.pro/storage/faq-articles/19BrlzCwEXtvJyTj.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                        <div class="m-b-md">
+                                                            <img src="https://saleads.pro/storage/faq-articles/v4OnpFLPAd5r0zLT.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="article-slider visible-xs-block">
+                                                        <div>
+                                                            <img src="https://saleads.pro/storage/faq-articles/19BrlzCwEXtvJyTj.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                        <div>
+                                                            <img src="https://saleads.pro/storage/faq-articles/v4OnpFLPAd5r0zLT.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
 
-                                            По вашим просьбам в разделе “Голосование” мы обновили наших ботов для VK и Telegram. Читайте подробнее в нашей статье!
+                                                </div>
+                                                <div class="col-xs-12 col-sm-8 col-sm-pull-4 sm-p-r-md instructions__item-answer-content">
+                                                    <h5>Вам необходимо обзавестись источником трафика:</h5>
+                                                    <ul>
+                                                        <li>собственный сайт</li>
+                                                        <li>контекстная реклама, </li>
+                                                        <li>таргетированная реклама,  </li>
+                                                        <li>размещение в тизерных сетях, </li>
+                                                        <li>баннерная реклама на сайтах и форумах и т.д. </li>
+                                                    </ul>
+                                                    <div class="hidden">
+                                                        <img src="https://saleads.pro/storage/faq-articles/19BrlzCwEXtvJyTj.png">
+                                                        <img src="https://saleads.pro/storage/faq-articles/v4OnpFLPAd5r0zLT.png">
+                                                    </div>
+                                                    <p>Вы сможете направить потенциальных клиентов (трафик) по партнёрской ссылке и заработать в случае, если с данного трафика будут выполнены целевые действия, указанные в условиях оффера. </p>
+                                                    <ol>
+                                                        <li><span>Для этого вам нужно <a href="https://saleads.pro/lk/webmaster/stands" traget="_blank">создать площадку</a> в личном кабинете Saleads.</span></li>
+                                                        <li><span><a href="https://saleads.pro/lk/webmaster/offers" target="_blank">Выбрать и подключить офферы</a> с которыми хотите работать</span></li>
+                                                    </ol>
+                                                    <p>Так же если у вас есть собственный сайт вы можете воспользоваться нашими <a href="https://saleads.pro/lk/webmaster/widgets" target="_blank">Виджетами</a>, либо если у вас нет собственного сайта вы можете сделать собственный лендинг Smartland с нашими доменами или припарковать свой собственный домен.</p>
+                                                    <p><b>Cookie</b> - это информация о сессии пользователя передаваемая с браузера, срок жизни Cookie необходим для того, чтобы вы понимали, как долго пользователь, перейдя по вашей ссылке, будет закреплен за вами.</p>
+                                                    <div class="type-alert">
+                                                        <h5>Например:</h5>
+                                                        <p>вы работаете с кредитным продуктом банка - как правило, банки выдают кредиты не всем лицам, поэтому примерно лишь 10% от всех целевых действий может получить статус "подтверждено". Этот показатель может варьироваться как в положительную сторону, так и в отрицательную, исходя из многих факторов: начиная от качества трафика и заканчивая экономической ситуацией в рекламируемом ГЕО.</p>
+                                                    </div>
+                                                    <p><b>Ознакомиться с правилами партнёрской программы перейдя по кнопки ниже:</b></p>
+                                                    <p><a class="btn btn-app" href="https://saleads.pro/service-conditions" target="_blank">Правила сайта Saleads</a></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">23.03</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2853"><img class="img-responsive" src="https://saleads.pro/storage/articles/z1cIEFYxs3fguWKu.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2853">Вывод средств на рекламные кабинеты</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            C 23 марта 2023г. Вывод средств на рекламные кабинеты осуществляется только через сервис ZaleayCash.
+                                    <div class="instructions__item ">
+                                        <div
+                                                class="instructions__item-question"
+                                        ><span class="number-label-wrapper"><span class="number-label">2</span></span> Как мне получить вознаграждение за целевое действие?</div>
+                                        <div class="instructions__item-answer" style="display: none;" id="article-2">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-4 col-sm-push-8">
+                                                    <div class="faq-images hidden-xs">
+                                                        <div class="m-b-md">
+                                                            <img src="https://saleads.pro/storage/faq-articles/2MIiO39peDfOk75a.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="article-slider visible-xs-block">
+                                                        <div>
+                                                            <img src="https://saleads.pro/storage/faq-articles/2MIiO39peDfOk75a.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
 
-                                            Сервис ZaleyCash позволяет пополнять баланс всех популярных рекламных сетей например таких как Яндекс Директ, VK реклама, MyTarget и пр.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">17.02</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2750"><img class="img-responsive" src="https://saleads.pro/storage/articles/F2poa17GsTB7P1YX.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2750">Добавили больше данных о конверсиях в отчетах &quot;Яндекс.Еда&quot;</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            Ранее мы выпустили витрины для HR-офферов: ими уже активно пользуются наши вебмастера. Мы думали, как помочь вам в повышении конверсий и нашли решение - теперь вы можете видеть подробную информацию по конверсиям в отчетах “Яндекс.Еда”. Подробнее читайте в нашей статье!
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">01.02</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2712"><img class="img-responsive" src="https://saleads.pro/storage/articles/0drI4icjsQlyUbDJ.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2712">HR: новые витрины и офферы</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            2023 год мы начали с развития HR-вертикали.
+                                                </div>
+                                                <div class="col-xs-12 col-sm-8 col-sm-pull-4 sm-p-r-md instructions__item-answer-content">
+                                                    <p>Необходимо привлечь интернет-трафик по партнерской ссылке на сайт рекламодателя, которого вы подключаете, соблюдая все правила партнерской системы и оффера. Если вы не нарушили правил, целевое действие отобразится в статистике и появится сумма на модерации.</p>
+                                                    <p><b>Сумма на модерации</b>- это лишь <b>прогнозируемая сумма</b>, а не фактический заработок в Saleads.</p>
 
-                                            Создали новые витрины SmartLand для HR-офферов и пополнили партнерку новыми офферами. Подробнее читайте в статье!
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">29.12</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2638"><img class="img-responsive" src="https://saleads.pro/storage/articles/C6wp785Vb0uf0FhR.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2638">Итоги года. Цели на 2023</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            Пришло время подвести итоги уходящего года и наметить цели на 2023. Мы благодарим каждого нашего партнёра за доверие и желаем, чтобы следующий год оказался не менее плодотворным и открывал для вас новые перспективы в сфере генерации и монетизации трафика. В свою очередь мы постараемся реализовать поставленные цели! О том, что успели сделать за 2022 и о том, что ждет вас в 2023 читайте в нашей статье.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">29.12</div>
-                                    <small class="text-muted">Новости платформы</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2637"><img class="img-responsive" src="https://saleads.pro/storage/articles/P22DIjNPSRwb8LKf.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2637">График работы офферов</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            Уважаемые вебмастера!
+                                                    <div class="type-alert">
+                                                        <h5>Например:</h5>
+                                                        <p>вы работаете с кредитным продуктом банка - как правило, банки выдают кредиты не всем лицам, поэтому примерно лишь 10% от всех целевых действий может получить статус "подтверждено". Этот показатель может варьироваться как в положительную сторону, так и в отрицательную, исходя из многих факторов: начиная от качества трафика и заканчивая экономической ситуацией в рекламируемом ГЕО.</p>
+                                                    </div>
 
-                                            Мы подготовили график работы офферов в праздничные дни
+                                                    <div class="hidden">
+                                                        <img src="https://saleads.pro/storage/faq-articles/2MIiO39peDfOk75a.png">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">10.12</div>
-                                    <small class="text-muted">Новости платформы</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2617"><img class="img-responsive" src="https://saleads.pro/storage/articles/JRgigmfj6lX4HGll.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2617">Рассылки Вконтакте</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            Если вы используете рассылки Вконтакте, то вы должны использовать только ссылки с припаркованным доменом для избежания блокировки ссылки
+                                    <div class="instructions__item ">
+                                        <div
+                                                class="instructions__item-question"
+                                        ><span class="number-label-wrapper"><span class="number-label">3</span></span> Где можно прочесть правила партнёрской сети Saleads?</div>
+                                        <div class="instructions__item-answer" style="display: none;" id="article-3">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-4 col-sm-push-8">
+                                                    <div class="faq-images hidden-xs">
+                                                        <div class="m-b-md">
+                                                            <img src="https://saleads.pro/storage/faq-articles/4c3wgfDt3CesmJGy.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="article-slider visible-xs-block">
+                                                        <div>
+                                                            <img src="https://saleads.pro/storage/faq-articles/4c3wgfDt3CesmJGy.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
 
-                                            В случае обнаружения СПАМ рассылки Вконтакте с использованием ссылки my.saleads.pro коннектор на оффер будет отключен
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">05.12</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2600"><img class="img-responsive" src="https://saleads.pro/storage/articles/aXyrug7KmcerMhQ8.jpeg" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2600">Предновогоднее настроение от Saleads.pro</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            Мы уже вовсю готовимся к предстоящим праздникам - отправляем новогодние подарки нашим преданным вебмастерам!
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">15.11</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2571"><img class="img-responsive" src="https://saleads.pro/storage/articles/23pq61mK38ZGdeVa.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2571">Новогодние подарки от Saleads.pro</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            До Нового Года осталось всего 1.5 месяца, а подарки уже можно выбрать сейчас. Мы ценим наших вебмастеров и подготовили для вас Новогодние подарки.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">25.10</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2538"><img class="img-responsive" src="https://saleads.pro/storage/articles/elJlIw2vrjNgYxfJ.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2538">Обновлённый Dashboard</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            Встречайте обновленный дашборд
+                                                </div>
+                                                <div class="col-xs-12 col-sm-8 col-sm-pull-4 sm-p-r-md instructions__item-answer-content">
+                                                    <p><b>Ознакомиться с правилами партнёрской программы перейдя по кнопки ниже:</b></p>
+                                                    <p><a class="btn btn-app" href="https://saleads.pro/service-conditions" target="_blank">Правила сайта Saleads</a></p>
 
-                                            Мы давно планировали обновить dashboard и сделать его более информативным. Обновленная главная страница вашего личного кабинета теперь содержит всю самую полезную информацию из вашей статистики.
+                                                    <div class="hidden">
+                                                        <img src="https://saleads.pro/storage/faq-articles/4c3wgfDt3CesmJGy.png">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">17.10</div>
-                                    <small class="text-muted">Новости платформы</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2524"><img class="img-responsive" src="https://saleads.pro/storage/articles/pqh85edFu4hqtAin.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2524">Изменение минимальной суммы вывода из холда</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            В связи с кратным ростом активности пользователей возросла нагрузка на наш сервис. Было принято решение вводе ограничения на вывод минимальной суммы из холда.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">02.09</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2442"><img class="img-responsive" src="https://saleads.pro/storage/articles/DfTNtxSCrSYSRKtH.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2442">Закон о маркировке рекламы. Что ждать вебмастерам?</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            К нам поступают вопросы от вебмастеров об новом законе о рекламе. Мы хотим немного прояснить ситуацию.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">31.08</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2437"><img class="img-responsive" src="https://saleads.pro/storage/articles/ph1zkmr7ZCWf7bu4.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2437">Новые дизайны BotLand и добавление функционала трафикбэк.</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            У нас 2 отличные новости для вас: мы полностью обновили дизайны BotLand и добавили в BotLand функционал Трафикбэк
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">15.07</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2376"><img class="img-responsive" src="https://saleads.pro/storage/articles/Vu3DzhzEo48SDuw2.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2376">Новый функционал - Трафикбэк.</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            У нас отличные новости! Мы подготовили новый функционал - Трафикбэк. Данный функционал используется для витрин Smartland. Трафикбэк подменяет в браузере кнопку "Назад", в результате пользователя ждёт не предыдущая страница, а указанная ссылка, что позволяет дополнительно монетизировать пользователей. Вы можете использовать любую ссылку для трафикбэка.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">09.06</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2309"><img class="img-responsive" src="https://saleads.pro/storage/articles/A43jZeDT9Gs1AOTy.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2309">Новый дизайн лендинга Smartland : Вклады.</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            У нас еще одна хорошая новость для вас. Мы подготовили новый дизайн лендинга Smartland для офферов Вклады.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 article">
-                            <div class="card card-alert card-blue">
-                                <div class="card-header">
-                                    <div class="pull-right text-muted">08.06</div>
-                                    <small class="text-muted">Новости компании</small>
-                                </div>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-lg-4 m-b-md">
-                                            <a href="https://saleads.pro/articles/2307"><img class="img-responsive" src="https://saleads.pro/storage/articles/8RgAt0ShOzoIIiD9.png" /></a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8">
-                                            <h4><a href="https://saleads.pro/articles/2307">Новый функционал: уведомление для BotTelegram и BotVK</a></h4>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-lg-8 small">
-                                            По вашему запросу в "Голосование" мы реализовали уведомление в "BotTelegram" и "BotVK". Пользователи, которые вступили взаимодействие с ботом теперь будут получать 1 уведомление с предложением 3 офферов раз в сутки. Данное нововведение увеличит количество добегов после ваших проливов на б
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 text-center">
-                        <ul class="pagination">
+                                    <div class="instructions__item ">
+                                        <div
+                                                class="instructions__item-question"
+                                        ><span class="number-label-wrapper"><span class="number-label">5</span></span> У меня есть источник трафика, и я хочу монетизировать трафик. Что для этого нужно сделать?</div>
+                                        <div class="instructions__item-answer" style="display: none;" id="article-5">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-4 col-sm-push-8">
+                                                    <div class="faq-images hidden-xs">
+                                                        <div class="m-b-md">
+                                                            <img src="https://saleads.pro/storage/faq-articles/F8XDFZtUgYLh5xYM.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="article-slider visible-xs-block">
+                                                        <div>
+                                                            <img src="https://saleads.pro/storage/faq-articles/F8XDFZtUgYLh5xYM.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
 
-                            <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-8 col-sm-pull-4 sm-p-r-md instructions__item-answer-content">
+                                                    <p>Вы сможете направить потенциальных клиентов (трафик) по партнёрской ссылке и заработать в случае, если с данного трафика будут выполнены целевые действия, указанные в условиях оффера. </p>
+                                                    <ol>
+                                                        <li><span>Для этого вам нужно <a href="https://saleads.pro/lk/webmaster/stands" traget="_blank">создать площадку</a> в личном кабинете Saleads.</span></li>
+                                                        <li><span><a href="https://saleads.pro/lk/webmaster/offers" target="_blank">Выбрать и подключить офферы</a> с которыми хотите работат</span></li>
+                                                    </ol>
+                                                    <p>Так же если у вас есть собственный сайт вы можете воспользоваться нашими <a href="https://saleads.pro/lk/webmaster/widgets" target="_blank">Виджетами</a>, либо если у вас нет собственного сайта вы можете сделать собственный лендинг Smartland с нашими доменами или припарковать свой собственный домен.</p>
+                                                    <div class="hidden">
+                                                        <img src="https://saleads.pro/storage/faq-articles/F8XDFZtUgYLh5xYM.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="instructions__item ">
+                                        <div
+                                                class="instructions__item-question"
+                                        ><span class="number-label-wrapper"><span class="number-label">6</span></span> Что такое площадка и как ее создать?</div>
+                                        <div class="instructions__item-answer" style="display: none;" id="article-6">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-4 col-sm-push-8">
+                                                    <div class="faq-images hidden-xs">
+                                                        <div class="m-b-md">
+                                                            <img src="https://saleads.pro/storage/faq-articles/UJ00q2XvZWLaoNer.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="article-slider visible-xs-block">
+                                                        <div>
+                                                            <img src="https://saleads.pro/storage/faq-articles/UJ00q2XvZWLaoNer.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-xs-12 col-sm-8 col-sm-pull-4 sm-p-r-md instructions__item-answer-content">
+                                                    <p>Раздел <a href="https://saleads.pro/lk/webmaster/stands">"Площадка"</a>  несёт собой информационный характер для удобства обращения с вашими источниками трафика. Перед тем, как получить партнёрскую ссылку, вы должны кратко описать, какой источник трафика планируете использовать. </p>
+                                                    <h5>Создать площадку можно в соответствующем разделе "Площадки". Для этого нужно:</h5>
+                                                    <ol>
+                                                        <li><span>Выберите источник трафика</span></li>
+                                                        <li><span>Введите описание</span></li>
+                                                        <li><span>Нажмите "Сохранить"</span></li>
+                                                    </ol>
 
 
+                                                    <p>Если вы используете витрину <b>Smartlands</b>, то Saleads автоматически создает площадку и генерирует партнёрскую ссылку, мгновенно размещая её на вашем лендинге</p>
 
+                                                    <p>Так же можно создавать несколько площадок  под разные источники трафика. Таким образом вы сможете отследить более детально статистику по каждому источнику трафика.</p>
 
+                                                    <a class="btn btn-app" href="https://saleads.pro/lk/webmaster/stands">Перейти в раздел</a>
 
-                            <li class="page-item active"><span class="page-link">1</span></li>
-                            <li class="page-item"><a class="page-link" href="https://saleads.pro/lk/webmaster/news?page=2">2</a></li>
-                            <li class="page-item"><a class="page-link" href="https://saleads.pro/lk/webmaster/news?page=3">3</a></li>
-                            <li class="page-item"><a class="page-link" href="https://saleads.pro/lk/webmaster/news?page=4">4</a></li>
+                                                    <div class="hidden">
+                                                        <img src="https://saleads.pro/storage/faq-articles/UJ00q2XvZWLaoNer.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="instructions__item ">
+                                        <div
+                                                class="instructions__item-question"
+                                        ><span class="number-label-wrapper"><span class="number-label">18</span></span> Я могу создать несколько площадок?</div>
+                                        <div class="instructions__item-answer" style="display: none;" id="article-18">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-4 col-sm-push-8">
+                                                    <div class="faq-images hidden-xs">
+                                                        <div class="m-b-md">
+                                                            <img src="https://saleads.pro/storage/faq-articles/OLWNw8pu7VzTBjCg.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="article-slider visible-xs-block">
+                                                        <div>
+                                                            <img src="https://saleads.pro/storage/faq-articles/OLWNw8pu7VzTBjCg.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
 
+                                                </div>
+                                                <div class="col-xs-12 col-sm-8 col-sm-pull-4 sm-p-r-md instructions__item-answer-content">
+                                                    <p>Вы можете использовать несколько источников трафика, под каждый отдельный источник трафика создается отдельная площадка.</p>
 
-                            <li class="page-item"><a class="page-link" href="https://saleads.pro/lk/webmaster/news?page=2" rel="next">&raquo;</a></li>
-                        </ul>
+                                                    <p>При подключении оффера вы можете выбрать площадку и получить уникальную для этого источника трафика ссылку, или же подключить к офферу несколько площадок, используя несколько источников трафика на этот оффер.</p>
 
-                    </div>
+                                                    <div class="hidden">
+                                                        <img src="https://saleads.pro/storage/faq-articles/OLWNw8pu7VzTBjCg.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="instructions__item ">
+                                        <div
+                                                class="instructions__item-question"
+                                        ><span class="number-label-wrapper"><span class="number-label">19</span></span> Как скоро мои площадки пройдут модерацию?</div>
+                                        <div class="instructions__item-answer" style="display: none;" id="article-19">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-4 col-sm-push-8">
+                                                    <div class="faq-images hidden-xs">
+                                                        <div class="m-b-md">
+                                                            <img src="https://saleads.pro/storage/faq-articles/va4eZGL3Oo5FQokY.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="article-slider visible-xs-block">
+                                                        <div>
+                                                            <img src="https://saleads.pro/storage/faq-articles/va4eZGL3Oo5FQokY.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-xs-12 col-sm-8 col-sm-pull-4 sm-p-r-md instructions__item-answer-content">
+                                                    <p><b>Площадки</b> проходят <b>автоматическую модерацию</b> сразу же, как только вы её создаете. После создания площадки вы можете выбрать оффер и получить партнерскую ссылку</p>
+
+                                                    <a class="btn btn-app" href="https://saleads.pro/lk/webmaster/stands">Перейти в раздел</a>
+                                                    <div class="hidden">
+                                                        <img src="https://saleads.pro/storage/faq-articles/va4eZGL3Oo5FQokY.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="instructions__item ">
+                                        <div
+                                                class="instructions__item-question"
+                                        ><span class="number-label-wrapper"><span class="number-label">23</span></span> У вас так много офферов, какой оффер мне выбрать? Посоветуйте мне офферы.</div>
+                                        <div class="instructions__item-answer" style="display: none;" id="article-23">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-4 col-sm-push-8">
+                                                    <div class="faq-images hidden-xs">
+                                                        <div class="m-b-md">
+                                                            <img src="https://saleads.pro/storage/faq-articles/BhsTTuOmoU7Hu8eq.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="article-slider visible-xs-block">
+                                                        <div>
+                                                            <img src="https://saleads.pro/storage/faq-articles/BhsTTuOmoU7Hu8eq.png" style="border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-xs-12 col-sm-8 col-sm-pull-4 sm-p-r-md instructions__item-answer-content">
+                                                    <p>Выбирайте подключения, исходя из показателей, таких как <b>"ECPC", "Процент подтверждения"</b> и исходя из ниши, которая будет интересна вашей аудитории, на которую вы собираетесь запускать рекламу.</p>
+
+                                                    <div class="hidden">
+                                                        <img src="https://saleads.pro/storage/faq-articles/BhsTTuOmoU7Hu8eq.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </section>
-            <script>
-                (function($){
-                    setTimeout( function(){
-                        $('.news').masonry({
-                            // options
-                            itemSelector: '.article',
-                            columnWidth: '.col-sm-6'
-                        });
-                    }, 200);
-                    $(window).load(function(){
-                        $('.news').masonry({
-                            // options
-                            itemSelector: '.article',
-                            columnWidth: '.col-sm-6'
-                        });
-                    });
-                })(jQuery);
-            </script>
             <!-- .container-fluid -->
             <!-- End Page Content -->
 
@@ -1465,6 +1770,64 @@
 <!-- SCRIPTS -->
 <!-- END SCRIPTS -->
 <!-- SCRIPTS SECTION -->
+<script src="/js/plugins/slick/slick.min.js"></script>
+
+<!-- Page JS Code -->
+<script>
+    if (document.querySelector('.instructions__content')) {
+        document.querySelector('.instructions__content').scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
+    if (document.querySelector('.instructions__item-question')) {
+        const buttons = document.querySelectorAll('.instructions__item-question');
+        for (let button of buttons) {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                this.parentNode.classList.toggle('active');
+                console.log($(this).next().find('.article-slider:not(.slick-initialized)'));
+                $(this).next().slideToggle();
+
+                $(this).next().find('.article-slider:not(.slick-initialized)').slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 300,
+                    // rows: 3,
+                    // columns: 1,
+                    // slidesPerRow: 1,
+                    // slidesPerColumn: 1,
+                    // mobileFirst: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    responsive: [
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                infinite: true,
+                                dots: true,
+                            }
+                        }
+                    ]
+                });
+            });
+        }
+    }
+
+    if (document.querySelector('.instructions__aside-title')) {
+        const buttons = document.querySelectorAll('.instructions__aside-title');
+        for (let button of buttons) {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                this.parentNode.classList.toggle('active');
+                $(this).next().slideToggle();
+
+            });
+        }
+    }
+</script>
 <!-- END SCRIPTS SECTION -->
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >

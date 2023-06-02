@@ -64,6 +64,16 @@ body {
 }
 
 // large border radius
+.article-slider img,
+.faq-images img {
+  border-radius: 15px!important;
+}
+.finance-modal__content--txt,
+.finance-modal__item,
+.page-preview__top,
+.telegram__right-block-link,
+.instructions__item-answer-content .type-alert,
+.instructions__content .page-inner .card.page-title,
 .card,
 .chart-block .card,
 .news .card a img,
@@ -73,11 +83,35 @@ body {
 .offers-block__item,
 .info-block__item,
 .card.page-title,
+.voting__item-quote,
+.side-nav,
+.offer__card-img img,
+.offer-graph-empty-wrapper,
+.offer-inner__top-img img,
+.card.page-inner__block,
+.card.table-block,
+.offer-tabs__connect-add-item,
+.quote,
 .homescreen {
   border-radius: 15px;
 }
+.card.page-inner__block {
+  border-radius: 15px;
+  .card {
+    background-color: transparent;
+  }
+}
+.page-inner>.card .card {
+  &:last-child {
+    border-bottom: none;
+  }
+}
+.dropdown-menu,
 .card.page-title .page-title__info .telegram-link {
   border-radius: 10px;
+}
+.card.page-inner__block {
+  //overflow: hidden;
 }
 // middle border radius
 .nav-tabs li:not(.addon) a {
@@ -92,6 +126,7 @@ body {
 }
 
 //box-shadow
+.instructions__content,
 .chart-block .card,
 .pagination > li > a, .pagination > li > span,
 .card.page-title,
@@ -101,6 +136,12 @@ body {
 .news-block__item,
 .offers-block__item,
 .info-block__item,
+.voting__top,
+.side-nav,
+.page-preview__top,
+.offer-tabs__connect-add-item,
+.card.page-inner__block,
+.card.table-block,
 .homescreen {
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.03);
 }
@@ -114,6 +155,15 @@ body {
 html body .offers-block__item .offers-block__img {
   border-radius: 17px 17px 5px 5px;
 }
+.telegram__right-block-link a,
+.instructions__item-answer ol li:before,
+.number-label,
+.complex-button,
+.modal-inner__btn,
+.code,
+.btn {
+  border-radius: 90px;
+}
 .site-nav__wrap {
   box-shadow: 1px 0px 10px rgba(70, 91, 122, 0.15);
 }
@@ -122,4 +172,119 @@ html body .offers-block__item .offers-block__img {
 }
 .instructions__aside-wrap {
   border-radius: 15px 0 0 15px;
+}
+.instructions__content {
+  border-radius: 0 15px 15px 0;
+}
+@media (max-width: 639px) {
+  .instructions__aside-wrap {
+    border-radius: 0 0 15px 15px;
+  }
+}
+.instructions__aside.active .instructions__aside-title {
+  border-radius: 15px;
+}
+@media (max-width: 768px) {
+  .instructions__content {
+    border-radius: 15px;
+  }
+}
+.table tbody tr td {
+  &:first-child {
+    border-radius: 15px 0 0 15px;
+  }
+  &:last-child {
+    border-radius: 0 15px 15px 0;
+  }
+}
+.button.button-inline {
+  border-radius: 100%;
+}
+.voting__top-left {
+  border-radius: 15px 15px 0 0;
+  @media (min-width: 768px) {
+    border-radius: 15px 0 0 15px;
+  }
+}
+.voting__top-right{
+  border-radius: 0 0 15px 15px;
+  @media (min-width: 768px) {
+    border-radius: 0 15px 15px 0;
+  }
+}
+.modal-inner__wrap {
+  border-radius: 15px 0 15px 15px;
+}
+.card-header {
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+.landing__list table {
+  border-radius: 0 0 15px 15px;
+
+}
+#widgets-docs,
+#webmaster-widget,
+#webmaster-bot-telegram
+#webmaster-bot-vk,
+#webmaster-landing {
+  .page-inner>.card .card-header+.card-block {
+    padding-top: 15px;
+
+  }
+}
+
+.page-preview__bottom .card-block {
+  padding-top: 15px;
+}
+.tabs-container .tabs-nav + .tab-content .tab-pane .bank-details .card ,
+.tabs-container .tabs-nav + .tab-content .tab-pane > .card {
+  border-top-left-radius: 0;
+}
+.card.postback-templates {
+  .card  {
+    box-shadow: none;
+  }
+}
+.card-block:first-child {
+  border-radius: 15px 15px 0 0;
+}
+#offers  {
+  .nav-tabs {
+    a {
+      display: flex;
+      align-items: center;
+    }
+    &__icon {
+      margin-right: 14px;
+    }
+  }
+}
+#offers >.card {
+  border-top-left-radius:  0;
+}
+@media  (min-width: 1200px) {
+  .card.cabinet-page--nav {
+    border-radius: 15px 0 0 15px;
+    overflow: hidden;
+  }
+  .card.cabinet-page--content {
+    border-radius: 0 15px 15px 0;
+  }
+
+}
+
+.form-search {
+  position: relative;
+  &__loop {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 14px;
+  }
+  .form-control {
+    padding-left: 38px;
+  }
+
 }

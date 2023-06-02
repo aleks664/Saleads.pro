@@ -1,0 +1,102 @@
+.offer-categories {
+  position: relative;
+  &.is-open  &__head {
+    background-color: #434343;
+    color: #FFF;
+    &:after {
+      background: url(../img/angle-up.png) center no-repeat;
+    }
+  }
+  &__head {
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 18px;
+    padding-right: 30px;
+    border: 1px solid #edeeef;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 39px;
+    cursor: pointer;
+    transition: background-color  0.3s linear, color 0.3s linear;
+    &:after {
+      content: '';
+      position: absolute;
+      background: url(../img/icons/select-arrow.png) center no-repeat;
+      background-size: cover;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 17px;
+      width: 9px;
+      height: 4px;
+      transition: .15s ease-in-out;
+    }
+  }
+  &.is-open &__dropdown {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__dropdown {
+    padding: 28px 20px;
+    box-shadow: 0px 1px 51px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background-color: #FFF;
+    z-index: 100;
+    position: absolute;
+    top: 100%;
+    margin-top: 11px;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: opacity 0.3 linear, visibility 0.3s linear;
+  }
+
+
+  &__list {
+    list-style: none;
+    margin: 0 -10px;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+    @media (min-width: 1400px) {
+      margin: 0 -60px;
+    }
+  }
+  &__itm {
+    padding: 0 10px;
+
+    @media (min-width: 992px) {
+      flex: 0 0 percentage(1/4);
+      max-width: percentage(1/4);
+    }
+
+
+
+    @media (min-width: 1400px) {
+      padding: 0 60px;
+    }
+
+  }
+  &__lnk {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 38px;
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__count {
+    padding-left: 5px;
+    color: #626262;
+  }
+  &__lnk:hover &__ttl {
+    color: #58A5EC;
+    text-decoration: underline;
+  }
+  &__ttl {
+    transition: color 0.3s linear;
+  }
+}

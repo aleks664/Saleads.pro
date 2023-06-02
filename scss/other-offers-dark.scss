@@ -1,0 +1,13 @@
+.other-offers {
+  background-color: #2B3143;
+  &__title {
+    color: #FFF;
+  }
+  &__card {
+    color: inherit;
+    &:hover {
+      background-color: #212634;
+      color: inherit;
+    }
+  }
+}
