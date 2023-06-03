@@ -8,6 +8,7 @@ const offerCategories = (selector) => {
         const $head = $categorie.querySelector('.offer-categories__head');
         const $parent = $categorie.closest('.card-block');
         const $dropdown = $categorie.querySelector('.offer-categories__dropdown');
+        const $categoriesItm = $categorie.querySelectorAll('.offer-categories__lnk')
         parentWidth($parent, $dropdown)
         $head.addEventListener('click', (e) => {
             e.preventDefault();
@@ -16,6 +17,13 @@ const offerCategories = (selector) => {
         window.addEventListener('resize', () => {
             parentWidth($parent, $dropdown)
         });
+        $categoriesItm.forEach($lnk => {
+            $lnk.addEventListener('click', (e) => {
+                e.preventDefault();
+                $head.querySelector('input').value = $lnk.querySelector('.offer-categories__ttl').textContent;
+                $categorie.classList.remove('is-open')
+            })
+        })
         document.addEventListener('click', (e) => {
             if (!e.target.closest(selector) ) {
                 $categorie.classList.remove('is-open')

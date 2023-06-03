@@ -58,7 +58,7 @@
   font-style: normal;
   font-display: swap;
 }
-
+.nav-tabs li:not(.addon) a,
 body {
   font-family: 'Manrope', Arial, sans-serif;
 }
@@ -249,42 +249,5 @@ html body .offers-block__item .offers-block__img {
 .card-block:first-child {
   border-radius: 15px 15px 0 0;
 }
-#offers  {
-  .nav-tabs {
-    a {
-      display: flex;
-      align-items: center;
-    }
-    &__icon {
-      margin-right: 14px;
-    }
-  }
-}
-#offers >.card {
-  border-top-left-radius:  0;
-}
-@media  (min-width: 1200px) {
-  .card.cabinet-page--nav {
-    border-radius: 15px 0 0 15px;
-    overflow: hidden;
-  }
-  .card.cabinet-page--content {
-    border-radius: 0 15px 15px 0;
-  }
 
-}
 
-.form-search {
-  position: relative;
-  &__loop {
-    pointer-events: none;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 14px;
-  }
-  .form-control {
-    padding-left: 38px;
-  }
-
-}
